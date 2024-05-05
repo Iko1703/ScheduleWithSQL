@@ -1,12 +1,7 @@
 ﻿using PRTelegramBot.Core;
-using PRTelegramBot.Helpers;
-using Telegram.Bot;
-using Telegram.Bot.Types;
 
 const string tokenBot = "7122311834:AAEy1rjfn78M7XQjUt3xUwR96RG0rhFIzTM";
 const string EXIT_Comm = "exit";
-
-
 
 var telegrtam = new PRBot(option =>
 {

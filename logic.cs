@@ -1,36 +1,23 @@
 ﻿using Microsoft.Data.SqlClient;
-using Microsoft.VisualBasic.FileIO;
 using PRTelegramBot.Attributes;
 using PRTelegramBot.Models;
 using PRTelegramBot.Utils;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
 using System.Globalization;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Runtime.Intrinsics.Arm;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.ReplyMarkups;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
 
 namespace TelegramBotTest1
 {
     
     public static class logic
     {
-        public static SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-Q85L5BK\IKOSQL;Initial Catalog=schediule;Integrated Security=True;TrustServerCertificate=True");
-        public static string group = "";
-        public static int day = 0;
-        public static int UpOrDown = 1;
-        public static DateTime Maindate = new DateTime(DateTime.Now.Year, DateTime.Now.Month,DateTime.Now.Day);
-        public static DateTime Changedate = Maindate;
+        private static SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-Q85L5BK\IKOSQL;Initial Catalog=schediule;Integrated Security=True;TrustServerCertificate=True");
+        private static string group = "";
+        private static int day = 0;
+        private static int UpOrDown = 1;
+        private static DateTime Maindate = new DateTime(DateTime.Now.Year, DateTime.Now.Month,DateTime.Now.Day);
+        private static DateTime Changedate = Maindate;
 
 
         [SlashHandler("/SetGroup", "/Вернуться к выбору группы","/start")]
@@ -135,8 +122,8 @@ namespace TelegramBotTest1
             
             sqlConnection.Close();
         }
-        
-        public static string GetValues(string query, SqlConnection sqlConnection)
+
+        private static string GetValues(string query, SqlConnection sqlConnection)
         {
             SqlCommand command = new SqlCommand(query, sqlConnection);
             SqlDataReader dataReaderStart = command.ExecuteReader();
